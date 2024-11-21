@@ -1,0 +1,16 @@
+{
+  "name": "express-blog-intro",
+  "version": "1.0.0",
+  "description": "Blog",
+  "main": "blog.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node blog.js",
+    "dev": "node --watch blog.js"
+  },
+  "author": "Mattia Carbonera",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
