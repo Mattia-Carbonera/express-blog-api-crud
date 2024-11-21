@@ -1,5 +1,6 @@
 const post = [
   {
+    id: "1",
     Title: "ciambellone",
     Content: "Ricetta",
     Image: "http://127.0.0.1:3000/ciambellone.jpeg",
@@ -13,6 +14,7 @@ const post = [
     ],
   },
   {
+    id: "2",
     Title: "cracker barbabietola",
     Content: "Ricetta",
     Image: "http://127.0.0.1:3000/cracker_barbabietola.jpeg",
@@ -26,6 +28,7 @@ const post = [
     ],
   },
   {
+    id: "3",
     Title: "pane fritto dolce",
     Content: "Ricetta",
     Image: "http://127.0.0.1:3000/pane_fritto_dolce.jpeg",
@@ -39,6 +42,7 @@ const post = [
     ],
   },
   {
+    id: "4",
     Title: "pasta barbabietola",
     Content: "Ricetta",
     Image: "http://127.0.0.1:3000/pasta_barbabietola.jpeg",
@@ -52,6 +56,7 @@ const post = [
     ],
   },
   {
+    id: "5",
     Title: "torta paesana",
     Content: "Ricetta",
     Image: "http://127.0.0.1:3000/torta_paesana.jpeg",

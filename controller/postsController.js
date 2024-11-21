@@ -39,9 +39,25 @@ function modify(req, res) {
 
 // # detroy
 function detroy(req, res) {
-  const index = req.params.id;
+  const index = parseInt(req.params.id);
 
-  res.json(`Elimino un elemento: ${index}`);
+  const selectedPost = post.find(
+    (currentPost) => parseInt(currentPost.id) === index
+  );
+
+  if (!selectedPost) {
+    console.log('error 204: "No Content"');
+    return res.status(204).json({
+      error: "No Content",
+    });
+  }
+
+  const postIndex = post.indexOf(selectedPost);
+
+  const deletedPost = post.splice(postIndex, 1);
+
+  console.log(post);
+  res.json(deletedPost);
 }
 
 module.exports = { index, show, store, update, modify, detroy };
