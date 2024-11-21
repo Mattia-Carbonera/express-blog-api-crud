@@ -17,8 +17,6 @@ function index(req, res) {
 function show(req, res) {
   const index = req.params.id;
 
-  // if (index > post.length || index < 1) return res.json("Post inesistente");
-
   const searchedPost = post.find((post) => post.id.includes(index));
   console.log(searchedPost);
 
