@@ -3,6 +3,13 @@ const post = require("../db/postArray");
 
 // # index
 function index(req, res) {
+  const { tag } = req.query;
+
+  if (tag) {
+    let tagContent = post.filter((post) => post.Tags.includes(tag));
+    return res.json(tagContent);
+  }
+
   res.json(["Visualizzo tutti gli elementi", post]);
 }
 
