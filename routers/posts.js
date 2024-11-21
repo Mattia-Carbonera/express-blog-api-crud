@@ -1,49 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
+// array di post
 const post = require("../db/postArray");
 
-// index
-router.get("/", (req, res) => {
-  res.json(["Visualizzo tutti gli elementi", post]);
-});
+// postsController
+const postsController = require("../controller/postsController");
 
-// show
-router.get("/:id", (req, res) => {
-  const index = req.params.id;
-  const selectedEl = post[index];
-
-  if (index > post.length) res.json("Post inesistente");
-
-  res.json([`Visualizzo un elemento: ${index}`, selectedEl]);
-});
-
-// store
-router.post("/", (req, res) => {
-  const index = req.params.id;
-
-  res.json("Creo un nuovo elemento");
-});
-
-// put
-router.put("/:id", (req, res) => {
-  const index = req.params.id;
-
-  res.json(`Modifico interamente un elemento: ${index}`);
-});
-
-// patch
-router.patch("/:id", (req, res) => {
-  const index = req.params.id;
-
-  res.json(`Modifico parzialmente un elemento: ${index}`);
-});
-
-// patch
-router.delete("/:id", (req, res) => {
-  const index = req.params.id;
-
-  res.json(`Elimino un elemento: ${index}`);
-});
+router.get("/", postsController.index);
+router.get("/:id", postsController.show);
+router.post("/", postsController.store);
+router.put("/:id", postsController.update);
+router.patch("/:id", postsController.modify);
+router.delete("/:id", postsController.detroy);
 
 module.exports = router;
