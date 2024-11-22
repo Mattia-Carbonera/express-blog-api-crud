@@ -59,29 +59,30 @@ function store(req, res) {
 // # update
 function update(req, res) {
   const index = req.params.id;
+  const param = req.body;
 
-  const { title, content, image, tags } = index;
+  const { title, content, image, tags } = param;
 
-  const changePost = {
-    id: id,
-    Title: title,
-    Content: content,
-    Image: image,
-    Tags: tags,
-  };
+  const thisPost = post.find((post) => post.id == index);
 
-  post.push(changePost);
+  // console.log(thisPost);
 
-  // console.log(newPost);
+  thisPost.id = index;
+  thisPost.Title = title;
+  thisPost.Content = content;
+  thisPost.Image = image;
+  thisPost.Tags = tags;
 
-  res.json(`Modifico interamente un elemento: ${index}`);
+  console.log(thisPost);
+
+  res.json(post);
 }
 
 // # modify
 function modify(req, res) {
   const index = req.params.id;
 
-  res.json(`Modifico parzialmente un elemento: ${index}`);
+  res.json(`Modifico parzialmente un elemento: ${post}`);
 }
 
 // # detroy
