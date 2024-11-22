@@ -20,11 +20,13 @@ function show(req, res) {
   const searchedPost = post.find((post) => post.id.includes(index));
   console.log(searchedPost);
 
+  // controllo dei post
   if (!searchedPost) {
     return res.status(404).json({
       error: "Post not found",
     });
   }
+  // -----------
 
   res.json([`Visualizzo un elemento: ${index}`, searchedPost]);
 }
@@ -65,13 +67,22 @@ function update(req, res) {
 
   const thisPost = post.find((post) => post.id == index);
 
-  // console.log(thisPost);
+  const searchedPost = post.find((post) => post.id.includes(index));
 
+  // controllo dei post
+  if (!searchedPost) {
+    return res.status(404).json({
+      error: "Post not found",
+    });
+  }
+  // -----------
+
+  // controllo dei parametri
   thisPost.id = index;
-  thisPost.Title = title;
-  thisPost.Content = content;
-  thisPost.Image = image;
-  thisPost.Tags = tags;
+  if (title) thisPost.Title = title;
+  if (content) thisPost.Content = content;
+  if (image) thisPost.Image = image;
+  if (tags) thisPost.Tags = tags;
 
   console.log(thisPost);
 
@@ -85,11 +96,13 @@ function modify(req, res) {
   const searchedPost = post.find((post) => post.id.includes(index));
   console.log(searchedPost);
 
+  // controllo dei post
   if (!searchedPost) {
     return res.status(404).json({
       error: "Post not found",
     });
   }
+  // -----------
 
   res.json(`Modifico parzialmente un elemento`);
 }
@@ -102,11 +115,13 @@ function detroy(req, res) {
     (currentPost) => parseInt(currentPost.id) === index
   );
 
+  // controllo dei post
   if (!selectedPost) {
     return res.status(404).json({
       error: "Post not found",
     });
   }
+  // -----------
 
   const postIndex = post.indexOf(selectedPost);
 
