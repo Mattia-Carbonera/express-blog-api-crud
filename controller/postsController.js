@@ -31,14 +31,14 @@ function show(req, res) {
 
 // # store
 function store(req, res) {
-  const index = req.body;
+  const param = req.body;
 
   const newId = parseInt(post.at(-1).id) + 1;
 
-  const { title, content, image, tags } = index;
+  const { title, content, image, tags } = param;
 
   if (!title || !content || !image || !tags.length) {
-    return res.status(404).json({ error: "Check params" });
+    return res.status(400).json({ error: "Check params" });
   }
 
   const newPost = {
@@ -51,9 +51,9 @@ function store(req, res) {
 
   post.push(newPost);
 
-  // console.log(newPost);
+  console.log(newPost);
 
-  res.json("Creo un nuovo elemento");
+  res.json(post);
 }
 
 // # update
@@ -82,7 +82,16 @@ function update(req, res) {
 function modify(req, res) {
   const index = req.params.id;
 
-  res.json(`Modifico parzialmente un elemento: ${post}`);
+  const searchedPost = post.find((post) => post.id.includes(index));
+  console.log(searchedPost);
+
+  if (!searchedPost) {
+    return res.status(404).json({
+      error: "Post not found",
+    });
+  }
+
+  res.json(`Modifico parzialmente un elemento`);
 }
 
 // # detroy
@@ -94,9 +103,8 @@ function detroy(req, res) {
   );
 
   if (!selectedPost) {
-    console.log('error 204: "No Content"');
-    return res.status(204).json({
-      error: "No Content",
+    return res.status(404).json({
+      error: "Post not found",
     });
   }
 
