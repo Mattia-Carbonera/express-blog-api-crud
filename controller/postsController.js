@@ -35,11 +35,11 @@ function store(req, res) {
 
   const newId = parseInt(post.at(-1).id) + 1;
 
+  const { title, content, image, tags } = index;
+
   if (!title || !content || !image || !tags.length) {
     return res.status(404).json({ error: "Check params" });
   }
-
-  const { title, content, image, tags } = index;
 
   const newPost = {
     id: newId,
@@ -59,6 +59,20 @@ function store(req, res) {
 // # update
 function update(req, res) {
   const index = req.params.id;
+
+  const { title, content, image, tags } = index;
+
+  const changePost = {
+    id: id,
+    Title: title,
+    Content: content,
+    Image: image,
+    Tags: tags,
+  };
+
+  post.push(changePost);
+
+  // console.log(newPost);
 
   res.json(`Modifico interamente un elemento: ${index}`);
 }
