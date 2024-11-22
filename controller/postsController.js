@@ -58,21 +58,7 @@ function store(req, res) {
 
 // # update
 function update(req, res) {
-  const index = req.body;
-
-  const { title, content, image, tags } = index;
-
-  const newPost = {
-    id: newId,
-    Title: title,
-    Content: content,
-    Image: image,
-    Tags: tags,
-  };
-
-  post.push(newPost);
-
-  // console.log(newPost);
+  const index = req.params.id;
 
   res.json(`Modifico interamente un elemento: ${index}`);
 }
