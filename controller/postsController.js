@@ -31,14 +31,48 @@ function show(req, res) {
 
 // # store
 function store(req, res) {
-  const index = req.params.id;
+  const index = req.body;
+
+  const newId = parseInt(post.at(-1).id) + 1;
+
+  if (!title || !content || !image || !tags.length) {
+    return res.status(404).json({ error: "Check params" });
+  }
+
+  const { title, content, image, tags } = index;
+
+  const newPost = {
+    id: newId,
+    Title: title,
+    Content: content,
+    Image: image,
+    Tags: tags,
+  };
+
+  post.push(newPost);
+
+  // console.log(newPost);
 
   res.json("Creo un nuovo elemento");
 }
 
 // # update
 function update(req, res) {
-  const index = req.params.id;
+  const index = req.body;
+
+  const { title, content, image, tags } = index;
+
+  const newPost = {
+    id: newId,
+    Title: title,
+    Content: content,
+    Image: image,
+    Tags: tags,
+  };
+
+  post.push(newPost);
+
+  // console.log(newPost);
 
   res.json(`Modifico interamente un elemento: ${index}`);
 }
