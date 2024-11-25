@@ -1,11 +1,9 @@
-function notFound(err, req, res, next) {
-  res.status(err.code ?? 500);
+function notFound(req, res, next) {
+  res.status(404);
   res.json({
     status: "KO",
-    error: err.message,
+    error: "Page not found",
   });
-
-  next();
 }
 
 module.exports = notFound;

@@ -16,12 +16,12 @@ function index(req, res) {
 // # show
 function show(req, res) {
   // genero l'errore
-  provaErrore.get();
+  // provaErrore.get();
 
   const index = req.params.id;
 
   const searchedPost = post.find((post) => post.id.includes(index));
-  // console.log(searchedPost);
+  console.log(searchedPost);
 
   if (!searchedPost) {
     const err = new Error("Post not found");
@@ -49,7 +49,9 @@ function store(req, res) {
   const { title, content, image, tags } = param;
 
   if (!title || !content || !image || !tags.length) {
-    return res.status(400).json({ error: "Check params" });
+    const err = new Error("Check params");
+    err.code = 400;
+    throw err;
   }
 
   const newPost = {
@@ -80,9 +82,44 @@ function update(req, res) {
 
   // controllo dei post
   if (!searchedPost) {
-    return res.status(404).json({
-      error: "Post not found",
-    });
+    const err = new Error("Post not found");
+    err.code = 404;
+    throw err;
+  } else if (!title || !content || !image || !tags.length) {
+    const err = new Error("Check params");
+    err.code = 400;
+    throw err;
+  }
+  // -----------
+
+  // controllo dei parametri
+  thisPost.id = index;
+  thisPost.Title = title;
+  thisPost.Content = content;
+  thisPost.Image = image;
+  thisPost.Tags = tags;
+
+  console.log(thisPost);
+
+  res.json(post);
+}
+
+// # modify
+function modify(req, res) {
+  const index = req.params.id;
+  const param = req.body;
+
+  const { title, content, image, tags } = param;
+
+  const thisPost = post.find((post) => post.id == index);
+
+  const searchedPost = post.find((post) => post.id.includes(index));
+
+  // controllo dei post
+  if (!searchedPost) {
+    const err = new Error("Post not found");
+    err.code = 404;
+    throw err;
   }
   // -----------
 
@@ -98,24 +135,6 @@ function update(req, res) {
   res.json(post);
 }
 
-// # modify
-function modify(req, res) {
-  const index = req.params.id;
-
-  const searchedPost = post.find((post) => post.id.includes(index));
-  console.log(searchedPost);
-
-  // controllo dei post
-  if (!searchedPost) {
-    return res.status(404).json({
-      error: "Post not found",
-    });
-  }
-  // -----------
-
-  res.json(`Modifico parzialmente un elemento`);
-}
-
 // # detroy
 function detroy(req, res) {
   const index = parseInt(req.params.id);
@@ -126,9 +145,9 @@ function detroy(req, res) {
 
   // controllo dei post
   if (!selectedPost) {
-    return res.status(404).json({
-      error: "Post not found",
-    });
+    const err = new Error("Post not found");
+    err.code = 404;
+    throw err;
   }
   // -----------
 
