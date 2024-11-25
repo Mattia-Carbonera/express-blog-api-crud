@@ -1,4 +1,4 @@
-function errorHandler(err, req, res, next) {
+function notFound(err, req, res, next) {
   res.status(err.code ?? 500);
   res.json({
     status: "KO",
@@ -8,4 +8,4 @@ function errorHandler(err, req, res, next) {
   next();
 }
 
-module.exports = errorHandler;
+module.exports = notFound;
