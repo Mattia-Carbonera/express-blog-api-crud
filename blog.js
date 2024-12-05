@@ -7,9 +7,11 @@ const postsRouter = require("./routers/posts");
 // middleware
 const errorHandler = require("./middleware/errorHandler.js");
 const notFound = require("./middleware/notFound.js");
+const cors = require("cors");
 
 app.use(express.static("public"));
 app.use(express.json());
+app.use(cors());
 
 // rotte
 app.use("/bacheca", menuRouter);

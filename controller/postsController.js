@@ -48,7 +48,7 @@ function store(req, res) {
 
   const { title, content, image, tags } = param;
 
-  if (!title || !content || !image || !tags.length) {
+  if (!title || !content || !image || !tags?.length) {
     const err = new Error("Check params");
     err.code = 400;
     throw err;
@@ -85,7 +85,7 @@ function update(req, res) {
     const err = new Error("Post not found");
     err.code = 404;
     throw err;
-  } else if (!title || !content || !image || !tags.length) {
+  } else if (!title || !content || !image || !tags?.length) {
     const err = new Error("Check params");
     err.code = 400;
     throw err;
