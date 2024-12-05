@@ -5,7 +5,7 @@ const post = [
     content: "Ricetta",
     image: "https://picsum.photos/20",
     tags: ["a", "b", "c"],
-    published: true,
+    published: "yes",
   },
   {
     id: "2",
@@ -13,7 +13,7 @@ const post = [
     content: "Ricetta",
     image: "https://picsum.photos/20",
     tags: ["1", "2", "3"],
-    published: true,
+    published: "yes",
   },
   {
     id: "3",
@@ -21,7 +21,7 @@ const post = [
     content: "Ricetta",
     image: "https://picsum.photos/20",
     tags: ["a", "2", "c"],
-    published: true,
+    published: "yes",
   },
   {
     id: "4",
@@ -29,7 +29,7 @@ const post = [
     content: "Ricetta",
     image: "https://picsum.photos/20",
     tags: ["1", "b", "3"],
-    published: true,
+    published: "yes",
   },
   {
     id: "5",
@@ -37,7 +37,7 @@ const post = [
     content: "Ricetta",
     image: "https://picsum.photos/20",
     tags: ["b", "c", "d"],
-    published: true,
+    published: "yes",
   },
   {
     id: "6",
@@ -45,7 +45,7 @@ const post = [
     content: "Ricetta",
     image: "https://picsum.photos/20",
     tags: ["b", "c", "d"],
-    published: false,
+    published: "no",
   },
 ];
 
