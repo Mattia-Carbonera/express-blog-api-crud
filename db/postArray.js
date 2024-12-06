@@ -1,6 +1,6 @@
 const post = [
   {
-    id: "1",
+    id: 1,
     title: "ciambellone",
     content: "Ricetta",
     image: "https://picsum.photos/20",
@@ -8,7 +8,7 @@ const post = [
     published: "yes",
   },
   {
-    id: "2",
+    id: 2,
     title: "cracker barbabietola",
     content: "Ricetta",
     image: "https://picsum.photos/20",
@@ -16,7 +16,7 @@ const post = [
     published: "yes",
   },
   {
-    id: "3",
+    id: 3,
     title: "pane fritto dolce",
     content: "Ricetta",
     image: "https://picsum.photos/20",
@@ -24,7 +24,7 @@ const post = [
     published: "yes",
   },
   {
-    id: "4",
+    id: 4,
     title: "pasta barbabietola",
     content: "Ricetta",
     image: "https://picsum.photos/20",
@@ -32,7 +32,7 @@ const post = [
     published: "yes",
   },
   {
-    id: "5",
+    id: 5,
     title: "torta paesana",
     content: "Ricetta",
     image: "https://picsum.photos/20",
@@ -40,7 +40,7 @@ const post = [
     published: "yes",
   },
   {
-    id: "6",
+    id: 6,
     title: "post prova",
     content: "Ricetta",
     image: "https://picsum.photos/20",

@@ -155,8 +155,8 @@ function detroy(req, res) {
 
   const deletedPost = post.splice(postIndex, 1);
 
-  console.log(post);
-  res.json(deletedPost);
+  console.log(deletedPost);
+  res.json(post);
 }
 
 module.exports = { index, show, store, update, modify, detroy };
